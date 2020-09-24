@@ -74,6 +74,4 @@ public class PigLatin {
         return i;
     return 0;
   }
-}class PigLatin {
-    
 }
