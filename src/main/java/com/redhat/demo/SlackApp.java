@@ -21,6 +21,7 @@ public class SlackApp extends SlackAppServlet {
 
   @Inject
   @Channel("slack")
+static
   Emitter<PigLatin> slackEmitter;
 
   private static final long serialVersionUID = 1L;
@@ -33,6 +34,11 @@ public class SlackApp extends SlackAppServlet {
     App app = new App();
     app.command("/piglatin", (req, ctx) -> {
       LOG.info(req.getRequestBodyAsString());
+      String text = req.getPayload().getText();
+      LOG.info(text);
+      PigLatin piglatin = new PigLatin(text);
+      piglatin.translateToPigLatin();
+      slackEmitter.send(piglatin);
     
       return ctx.ack("What's up?");
     });
