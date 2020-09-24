@@ -45,6 +45,10 @@
       <artifactId>bolt-servlet</artifactId>
       <version>${slack.bolt.version}</version>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jsonb</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
