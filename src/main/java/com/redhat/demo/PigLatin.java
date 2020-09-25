@@ -1,7 +1,5 @@
 package com.redhat.demo;
 
-import org.eclipse.microprofile.reactive.messaging.Outgoing;
-
 public class PigLatin {
  
  public String inputText;
@@ -17,8 +15,7 @@ public class PigLatin {
  
  //Pig Latin logic borrowed from here: http://pages.cs.wisc.edu/~ltorrey/cs302/examples/PigLatinTranslator.java
  
-  @Outgoing("slack")
-  public PigLatin translateToPigLatin() {
+  public void translateToPigLatin() {
     outputText = "";
    
     int i = 0;
@@ -42,7 +39,6 @@ public class PigLatin {
       int end = i;
       outputText = outputText + pigWord(inputText.substring(begin, end));
   }
-  return this;
 }
 
   /**
