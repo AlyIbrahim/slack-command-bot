@@ -20,6 +20,9 @@ import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.jboss.logging.Logger;
 
 import javax.inject.Inject;
+//////////////////////////////////////////////////////////////////////////
+//This class is not used in the app, just left for reference//////////////
+/////////////////////////////////////////////////////////////////////////
 
 @WebServlet("/slack/events")
 public class SlackApp extends HttpServlet  {

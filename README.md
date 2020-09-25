@@ -43,7 +43,8 @@ The application has 2 configuration resources:
 `KAFKA_BOOTSTRAP_SERVERS="cluster-kafka-bootstrap.kafka.svc:9092"`
 Run the following command to create the configmap piggybee-env
 ```
-oc create configmap --from-literal=KAFKA_BOOTSTRAP_SERVERS="cluster-kafka-bootstrap.kafka.svc:9092" piggybee-env```
+oc create configmap --from-literal=KAFKA_BOOTSTRAP_SERVERS="cluster-kafka-bootstrap.kafka.svc:9092" piggybee-env
+```
 
 2. A secret containing slack app connection configuration which are:
 NOTE: This is not used in this basic functionality but it is recommended to check against those value for any incoming request to make sure this is generated from Slack to your app ant to respond with the token as a bearer header
