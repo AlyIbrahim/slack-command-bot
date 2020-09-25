@@ -21,24 +21,28 @@ public class SlackApp extends SlackAppServlet {
 
   @Inject
   @Channel("slack")
-static
   Emitter<PigLatin> slackEmitter;
 
   private static final long serialVersionUID = 1L;
 
-  public SlackApp() throws IOException { super(initSlackApp()); }
+  public SlackApp() throws IOException { 
+      super(initSlackApp()); 
+}
 
   public SlackApp(App app) { super(app); }
 
   private static App initSlackApp() throws IOException {
     App app = new App();
-    app.command("/piglatin", (req, ctx) -> {
+    app.command("/piglatin",
+    (req, ctx) -> {
       LOG.info(req.getRequestBodyAsString());
       String text = req.getPayload().getText();
       LOG.info(text);
-      PigLatin piglatin = new PigLatin(text);
-      piglatin.translateToPigLatin();
-      slackEmitter.send(piglatin);
+      PigLatin pigLatin = new PigLatin(text);
+      pigLatin.translateToPigLatin();
+
+    //   PigLatinKafka pigKafka = new PigLatinKafka(pigLatin);
+    //   pigKafka.send();
     
       return ctx.ack("What's up?");
     });
